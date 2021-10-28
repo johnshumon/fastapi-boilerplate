@@ -13,16 +13,16 @@ This section describes tools and configurations needed to make local environment
 
 Following tech stacks are required to get the local env up and running.
 
-- Python 3.9
-- Pipenv
-- Alembic
-- PostgresSQL
+- [Python 3.9](https://www.python.org/downloads/)
+- [Pipenv](https://pipenv.kennethreitz.org/en/latest/)
+- [Alembic](https://alembic.sqlalchemy.org/en/latest/front.html#installation)
+- [PostgresSQL](https://www.postgresql.org/)
 
 ---
 
 ### Installation
 
-This is a installation example for Mac users. Please checkout official documentations for windows/linux. It's assumed that [Homebrew](https://brew.sh) is installed in the machine.
+This is a installation example for Mac users. Please checkout official documentations of those above prerequisites for `windows/linux`. It's assumed that [Homebrew](https://brew.sh) is installed in the machine.
 
 ```sh
 # Install python and it's ecosystem
