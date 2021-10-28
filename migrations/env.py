@@ -1,12 +1,21 @@
 # from logging.config import fileConfig
 
+import sys
+
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
 from alembic import context
 
+sys.path = ["", ".."] + sys.path[1:]
+
+# flake8: noqa
 from app.models import Base
 from app.core import settings
+
+
+# parent_dir = os.path.abspath(os.path.join(os.getcwd(), ".."))
+# sys.path.append(parent_dir)
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -14,8 +23,9 @@ config = context.config
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
-# fileConfig(config.config_file_name) <- keeping this on
-#                                        overwrites logging
+
+# keeping the following uncommented overwrites logging
+# fileConfig(config.config_file_name)
 
 # add your model's MetaData object here
 # for 'autogenerate' support
@@ -58,7 +68,7 @@ def run_migrations_online():
     and associate a connection with the context.
 
     """
-    print("executing online migration from env.py")
+    print("Executing online migration from env.py...")
 
     configuration = config.get_section(config.config_ini_section)
     configuration["sqlalchemy.url"] = settings.DB_URL
