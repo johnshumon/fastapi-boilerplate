@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  db:
+    image: "postgres:14"
+    container_name: "pg"
+    ports:
+      - "5434:5432"
+    volumes:
+      - ./dbdata:/var/lib/postgresql/data
+    env_file:
+      - ./pg.env
+    networks:
+      - main
+
+  api:
+    image: "fastapi-bp:latest"
+    container_name: "fastapi_bp"
+    ports:
+      - "9000:9000"
+    env_file:
+      - ./docker.env
+    networks:
+      - main
+    depends_on:
+      - db
+    restart: on-failure
+
+volumes:
+  dbdata:
+
+networks:
+  main:
