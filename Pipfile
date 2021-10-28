@@ -4,15 +4,22 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-uvicorn = "==0.14.0"
+alembic = "==1.7.4"
 fastapi = "==0.65.2"
+httpx = "==0.18.1"
+psycopg2-binary = "==2.9.1"
 pydantic = "==1.8.2"
 python-dotenv = "==0.18.0"
-httpx = "==0.18.1"
+python-multipart = "==0.0.5"
+sqlalchemy = "==1.4.25"
+uvicorn = "==0.14.0"
 
 [dev-packages]
-pylint = "*"
-flake8 = "*"
+black = "==21.9b0"
+flake8 = "==4.0.1"
+pipfile-sort = "==0.2.2"
+pylint = "==2.11.1"
+pytest = "==6.2.5"
 
 [requires]
 python_version = "3.9"

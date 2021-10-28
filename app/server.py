@@ -1,11 +1,14 @@
 """Application server module"""
 
+import logging
 import uvicorn
 
 from fastapi import FastAPI
 
 from app.core import settings
-from app.apis.v1 import api_router
+from app.api.handlers.v1 import api_router
+
+logger = logging.getLogger(__name__)
 
 app = FastAPI(title=settings.PROJECT_NAME)
 app.include_router(api_router, prefix=settings.API_V1_STR)
