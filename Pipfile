@@ -13,6 +13,7 @@ python-dotenv = "==0.18.0"
 python-multipart = "==0.0.5"
 sqlalchemy = "==1.4.25"
 uvicorn = "==0.14.0"
+pyjwt = "==1.7.1"
 
 [dev-packages]
 black = "==21.9b0"
@@ -20,6 +21,7 @@ flake8 = "==4.0.1"
 pipfile-sort = "==0.2.2"
 pylint = "==2.11.1"
 pytest = "==6.2.5"
+sentry-sdk = "==1.4.3"
 
 [requires]
 python_version = "3.9"
