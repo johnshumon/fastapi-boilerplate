@@ -15,7 +15,7 @@ router = APIRouter()
 
 
 @router.get("", response_model=List[schemas.ProductResponse])
-def read_products(
+async def read_products(
     db: Session = Depends(get_db), skip: int = 0, limit: int = 100
 ) -> Any:
     """
@@ -26,7 +26,7 @@ def read_products(
 
 
 @router.post("", response_model=schemas.ProductResponse)
-def create_product(
+async def create_product(
     *, db: Session = Depends(get_db), product_in: schemas.ProductCreate
 ) -> Any:
     """
@@ -37,7 +37,7 @@ def create_product(
 
 
 @router.put("", response_model=schemas.ProductResponse)
-def update_product(
+async def update_product(
     *, db: Session = Depends(get_db), product_in: schemas.ProductUpdate
 ) -> Any:
     """
@@ -54,7 +54,7 @@ def update_product(
 
 
 @router.delete("", response_model=schemas.Message)
-def delete_product(*, db: Session = Depends(get_db), id: int) -> Any:
+async def delete_product(*, db: Session = Depends(get_db), id: int) -> Any:
     """
     Delete existing product.
     """
