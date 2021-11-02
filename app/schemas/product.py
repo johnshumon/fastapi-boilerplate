@@ -1,11 +1,8 @@
-""""""
-import logging
+"""Product schema module"""
 
 from typing import Optional
 
 from pydantic import BaseModel
-
-logger = logging.getLogger(__name__)
 
 
 class ProductBase(BaseModel):
