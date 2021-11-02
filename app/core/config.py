@@ -15,6 +15,11 @@ class Settings(BaseSettings):
     API_V1_STR: str = "/api/v1"
     PROJECT_NAME: str = "Fast API service"
     DB_URL: str
+    SIGNING_KEY: str
+    SIGNING_ALGORITHM: str
+    VALIDATION_PERIOD: str
+    TOKEN_ISSUER: str
+    TOKEN_AUDIENCE: str
 
     class Config:
         env_file = ".env"
