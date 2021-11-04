@@ -20,8 +20,12 @@ def init_server() -> None:
     Spin up the server.
     """
     # Log format
-    log_config["formatters"]["access"]["fmt"] = "[%(asctime)s.%(msecs)d] | %(levelname)s | [%(name)s:%(filename)s:%(lineno)d] - %(message)s"
-    log_config["formatters"]["default"]["fmt"] = "[%(asctime)s.%(msecs)d] | %(levelname)s | [%(name)s:%(filename)s:%(lineno)d] - %(message)s"
+    log_config["formatters"]["access"][
+        "fmt"
+    ] = "[%(asctime)s.%(msecs)d] | %(levelname)s | [%(name)s:%(filename)s:%(lineno)d] - %(message)s"
+    log_config["formatters"]["default"][
+        "fmt"
+    ] = "[%(asctime)s.%(msecs)d] | %(levelname)s | [%(name)s:%(filename)s:%(lineno)d] - %(message)s"
 
     # Date format
     date_fmt = "%Y-%m-%d:%H:%M:%S"
@@ -30,4 +34,6 @@ def init_server() -> None:
     log_config["formatters"]["access"]["datefmt"] = date_fmt
 
     # Run the server
-    uvicorn.run("app.server:app", log_config=log_config, host="0.0.0.0", port=9000, reload=True)
+    uvicorn.run(
+        "app.server:app", log_config=log_config, host="0.0.0.0", port=9000, reload=True
+    )
