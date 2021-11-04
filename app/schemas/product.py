@@ -11,12 +11,12 @@ class ProductBase(BaseModel):
     price: Optional[float]
 
 
-class ProductCreate(ProductBase):
+class CreateProduct(ProductBase):
     name: str
     price: float
 
 
-class ProductUpdate(ProductBase):
+class UpdateProduct(ProductBase):
     id: int
     pass
 

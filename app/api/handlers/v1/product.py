@@ -27,7 +27,7 @@ async def read_products(
 
 @router.post("", response_model=schemas.ProductResponse)
 async def create_product(
-    *, db: Session = Depends(get_db), product_in: schemas.ProductCreate
+    *, db: Session = Depends(get_db), product_in: schemas.CreateProduct
 ) -> Any:
     """
     Create new products.
@@ -38,7 +38,7 @@ async def create_product(
 
 @router.put("", response_model=schemas.ProductResponse)
 async def update_product(
-    *, db: Session = Depends(get_db), product_in: schemas.ProductUpdate
+    *, db: Session = Depends(get_db), product_in: schemas.UpdateProduct
 ) -> Any:
     """
     Update existing products.
