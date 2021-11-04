@@ -2,7 +2,7 @@
 
 from typing import Optional
 
-from pydantic import BaseModel, Field, EmailStr
+from pydantic import BaseModel, Field
 
 
 class CreateToken(BaseModel):
@@ -15,7 +15,7 @@ class CreateToken(BaseModel):
             "example": {
                 "firstname": "Abu",
                 "lastname": "Shumon",
-                "email": "email@shumon.me"
+                "email": "email@shumon.me",
             }
         }
 

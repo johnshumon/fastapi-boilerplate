@@ -1,3 +1,3 @@
 """Authentication modules import"""
 
-from .auth import encode_jwt
+from .auth import generate_token

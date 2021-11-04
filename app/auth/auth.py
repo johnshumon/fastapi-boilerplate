@@ -1,10 +1,15 @@
 """Authentication module"""
 
+import logging
 import time
+
+from typing import Any
 
 import jwt
 
 from app.core import settings
+
+logger = logging.getLogger(__name__)
 
 
 def encode_jwt(user_email: str) -> str:
@@ -27,10 +32,37 @@ def encode_jwt(user_email: str) -> str:
         "exp": int(time.time() + float(settings.VALIDATION_PERIOD)),
         "aud": user_email,
     }
-    access_token = jwt.encode(payload, settings.SIGNING_KEY, algorithm=settings.SIGNING_ALGORITHM).decode("utf-8")
+    access_token = jwt.encode(
+        payload, settings.SIGNING_KEY, algorithm=settings.SIGNING_ALGORITHM
+    ).decode("utf-8")
 
     return access_token
 
 
-def get_token():
-    pass
+def decode_jwt(token: str) -> Any:
+    """
+    Checks if a given jwt is valid. If it is
+    then request is further allowed to access
+    intended API.
+    """
+
+    try:
+        decoded_token = jwt.decode(
+            token,
+            settings.SIGNING_KEY,
+            algorithms=settings.SIGNING_ALGORITHM,
+            issuer=settings.TOKEN_ISSUER,
+            audience=settings.TOKEN_AUDIENCE,
+        )
+        return decoded_token if decoded_token["exp"] >= time.time() else None
+    except Exception as err:
+        logger.error(err)
+        return None
+
+
+def generate_token(user_email: str) -> str:
+    return encode_jwt(user_email)
+
+
+def is_valid_token(token: str) -> bool:
+    return True if decode_jwt(token) else False

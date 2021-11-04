@@ -7,7 +7,7 @@ from typing import Any
 from fastapi import APIRouter
 
 from app.schemas import CreateToken, CreateTokenResponse
-from app.auth import encode_jwt
+from app.auth import generate_token
 
 router = APIRouter()
 
@@ -16,7 +16,9 @@ router = APIRouter()
 async def create_token(body: CreateToken) -> Any:
     """
     JWT handler.
+    Takes user details and uses user-email to create a
+    JWT as a access token.
     """
 
-    access_token = encode_jwt(body.email)
+    access_token = generate_token(body.email)
     return {"access_token": access_token}
