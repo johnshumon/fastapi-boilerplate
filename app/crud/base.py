@@ -1,4 +1,5 @@
-""""""
+"""Base CRUS Module"""
+
 import logging
 
 from typing import Any, Dict, Generic, List, Optional, Type, TypeVar, Union

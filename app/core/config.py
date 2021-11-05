@@ -15,6 +15,7 @@ class Settings(BaseSettings):
     API_V1_STR: str = "/api/v1"
     PROJECT_NAME: str = "Fast API service"
     DB_URL: str
+    MIGRATION_SCRIPT_LOCATION: str
     SIGNING_KEY: str
     SIGNING_ALGORITHM: str
     VALIDATION_PERIOD: str
