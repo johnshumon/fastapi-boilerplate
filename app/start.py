@@ -1,28 +1,17 @@
 """Application entry point: Main app"""
 
-import logging
-
 from app.server import init_server
+from app.services import init_db, run_migrations
 
-logger = logging.getLogger(__name__)
-
-
-def _init_logging():
-    level = "INFO"
-    log_format = (
-        "%(asctime)s :: %(levelname)s :: %(filename)s :: %(lineno)s ::__%(message)s"
-    )
-    date_format = "%H:%M:%S"
-
-    logging.basicConfig(level=level, format=log_format, datefmt=date_format)
-
-
-def main() -> None:
-    _init_logging()
-
-    # spin up the server
-    init_server()
+from app.core.config import settings
 
 
 if __name__ == "__main__":
-    main()
+    # Usually migration is run at the beginning
+    # before starting up the server. But for now
+    # keep migration off.
+    run_migrations(settings.MIGRATION_SCRIPT_LOCATION, settings.DB_URL)
+
+    # Initialize db and start the server.
+    init_db()
+    init_server()

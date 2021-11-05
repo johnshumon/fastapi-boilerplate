@@ -29,7 +29,6 @@ def init_server() -> None:
 
     # Date format
     date_fmt = "%Y-%m-%d:%H:%M:%S"
-    print("date_fmt", date_fmt)
     log_config["formatters"]["default"]["datefmt"] = date_fmt
     log_config["formatters"]["access"]["datefmt"] = date_fmt
 
