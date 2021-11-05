@@ -8,7 +8,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 from app import schemas, crud
-from app.api.deps import get_db
+from app.db.session import db_connection
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -16,7 +16,7 @@ router = APIRouter()
 
 @router.get("", response_model=List[schemas.ProductResponse])
 async def read_products(
-    db: Session = Depends(get_db), skip: int = 0, limit: int = 100
+    db: Session = Depends(db_connection), skip: int = 0, limit: int = 100
 ) -> Any:
     """
     Retrieve all products.
@@ -27,7 +27,7 @@ async def read_products(
 
 @router.post("", response_model=schemas.ProductResponse)
 async def create_product(
-    *, db: Session = Depends(get_db), product_in: schemas.CreateProduct
+    *, db: Session = Depends(db_connection), product_in: schemas.CreateProduct
 ) -> Any:
     """
     Create new products.
@@ -38,7 +38,7 @@ async def create_product(
 
 @router.put("", response_model=schemas.ProductResponse)
 async def update_product(
-    *, db: Session = Depends(get_db), product_in: schemas.UpdateProduct
+    *, db: Session = Depends(db_connection), product_in: schemas.UpdateProduct
 ) -> Any:
     """
     Update existing products.
@@ -54,7 +54,7 @@ async def update_product(
 
 
 @router.delete("", response_model=schemas.Message)
-async def delete_product(*, db: Session = Depends(get_db), id: int) -> Any:
+async def delete_product(*, db: Session = Depends(db_connection), id: int) -> Any:
     """
     Delete existing product.
     """
