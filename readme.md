@@ -115,3 +115,13 @@ $ alembic --config migrations/alembic.ini upgrade head
 ## Roadmap
 
 State the roadmap of the project
+
+## License
+[MIT LICENSE](./LICENSE)
+
+## Credit
+
+I've taken inspirations from these following two libraries while making this boiler plate.
+
+- [SKB's boilerplate](https://github.com/skb1129/fastapi-boilerplate)
+- [Thales Bruno's boilerplate](https://github.com/thalesbruno/fastapi-boilerplate)
