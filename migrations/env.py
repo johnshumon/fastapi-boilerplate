@@ -2,17 +2,14 @@
 
 import sys
 
-from sqlalchemy import engine_from_config
-from sqlalchemy import pool
-
 from alembic import context
+from sqlalchemy import engine_from_config, pool
 
 sys.path = ["", ".."] + sys.path[1:]
 
+from app.core import settings
 # flake8: noqa
 from app.models import Base
-from app.core import settings
-
 
 # parent_dir = os.path.abspath(os.path.join(os.getcwd(), ".."))
 # sys.path.append(parent_dir)
