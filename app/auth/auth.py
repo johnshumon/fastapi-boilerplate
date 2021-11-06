@@ -6,8 +6,11 @@ import time
 from typing import Any
 
 import jwt
+from passlib.context import CryptContext
 
 from app.core import settings
+
+pwd_context = CryptContext(schemes=['bcrypt'], deprecated="auto")
 
 
 def encode_jwt(user_email: str) -> str:
@@ -54,7 +57,6 @@ def decode_jwt(token: str) -> Any:
         )
         return decoded_token if decoded_token["exp"] >= time.time() else None
     except Exception as err:
-        logger.error(err)
         return None
 
 
@@ -64,3 +66,11 @@ def generate_token(user_email: str) -> str:
 
 def is_valid_token(token: str) -> bool:
     return True if decode_jwt(token) else False
+
+
+def hash_password(password):
+    return pwd_context.hash(password)
+
+
+def verify_password(plain_password, hashed_password):
+    return pwd_context.verify(plain_password, hashed_password)

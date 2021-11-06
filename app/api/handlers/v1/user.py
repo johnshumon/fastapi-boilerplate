@@ -36,7 +36,7 @@ async def create_user(userdata: CreateUser, db: Session = Depends(db_connection)
     except Exception as err:
         # TODO: replace print with logger
         print("-----------------------------")
-        print("Err here: ", err)
+        print("Error: ", err)
         print("-----------------------------")
 
         return {

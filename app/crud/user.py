@@ -8,6 +8,7 @@ from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
+from app.auth import auth
 from app.models.user import User
 from app.schemas.user import CreateUser
 
@@ -17,6 +18,8 @@ class CRUDUser(BaseModel):
     class for user's CRUD operations.
     """
     def create(self, userdata: CreateUser, db: Session):
+        # hashes given user password
+        userdata.password = auth.hash_password(userdata.password)
         serialized_data = jsonable_encoder(userdata)
         db_obj = User(**serialized_data)
         db.add(db_obj)
