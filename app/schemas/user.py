@@ -12,6 +12,7 @@ class UserBase(BaseModel):
     lastname: Optional[str]
     email: Optional[str]
     password: Optional[str]
+    username: Optional[str]
 
 
 class CreateUser(UserBase):
@@ -19,6 +20,7 @@ class CreateUser(UserBase):
     lastname: str = Field(...)
     email: EmailStr = Field(...)
     password: str = Field(...)
+    username: str = Field(...)
 
     class Config:
         schema_extra = {
@@ -26,6 +28,7 @@ class CreateUser(UserBase):
                 "firstname": "Abu",
                 "lastname": "Shumon",
                 "email": "email@shumon.me",
+                "username": "superuser",
                 "password": "nopassword",
             }
         }

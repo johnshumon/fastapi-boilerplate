@@ -81,7 +81,7 @@ Choose one of the following options to run the application
   ```
 
 Once service is up and running successfully hover over the following url for the API documentation:
-[localhost:8000/docs](http://127.0.0.1:9000/docs)
+[localhost:9000/docs](http://127.0.0.1:9000/docs)
 
 ---
 
