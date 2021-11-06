@@ -1,15 +1,13 @@
-"""Authentication module"""
+"""
+Authentication module
+"""
 
-import logging
 import time
-
 from typing import Any
 
 import jwt
 
 from app.core import settings
-
-logger = logging.getLogger(__name__)
 
 
 def encode_jwt(user_email: str) -> str:

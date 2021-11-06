@@ -1,24 +1,19 @@
 """
-User module. This contains handlers related
-to user signup, login, and update details.
+Dummy authorised module. Only authorised requests can
+access this endpoint.
 """
 
 from typing import Any
-from fastapi import APIRouter
 
-from app.schemas import CreateUser, CreateUserResponse
-from app.auth import generate_token
+from fastapi import APIRouter
 
 router = APIRouter()
 
 
-@router.post("", response_model=CreateUserResponse)
-async def create_token(body: CreateUser) -> Any:
+@router.get("")
+async def get_contents() -> Any:
     """
-    Handler for user signup
-    Takes user details, and uses user-email to create a
-    JWT as a access token.
+    Dummy authorised endpoint
     """
 
-    access_token = generate_token(body.email)
-    return {"access_token": access_token}
+    return {"You have successfully authorised!"}

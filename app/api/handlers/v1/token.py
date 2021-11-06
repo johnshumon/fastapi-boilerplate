@@ -4,10 +4,11 @@ obtained in order to access authorized endpoints.
 """
 
 from typing import Any
+
 from fastapi import APIRouter
 
-from app.schemas import CreateToken, CreateTokenResponse
 from app.auth import generate_token
+from app.schemas import CreateToken, CreateTokenResponse
 
 router = APIRouter()
 

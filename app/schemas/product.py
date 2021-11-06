@@ -1,4 +1,6 @@
-"""Product schema module"""
+"""
+Product schema module
+"""
 
 from typing import Optional
 

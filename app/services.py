@@ -20,4 +20,7 @@ def run_migrations(script_location: str, db_url: Optional[str]) -> None:
 
 
 def init_db() -> None:
+    """
+    Initialises database engine.
+    """
     initialise()

@@ -2,11 +2,10 @@
 
 # import logging
 import uvicorn
-
 from fastapi import FastAPI
 
-from app.core import settings
 from app.api.handlers.v1 import api_router
+from app.core import settings
 
 log_config = uvicorn.config.LOGGING_CONFIG
 

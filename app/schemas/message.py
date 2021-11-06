@@ -1,4 +1,6 @@
-""""""
+"""
+Message module template
+"""
 
 import logging
 

@@ -1,6 +1,9 @@
-"""Home handler module"""
+"""
+Home handler module
+"""
 
 from typing import Any
+
 from fastapi import APIRouter
 
 router = APIRouter()

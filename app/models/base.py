@@ -1,6 +1,6 @@
-""""""
-
-import logging
+"""
+Base module for all the models
+"""
 
 from datetime import datetime
 from typing import Any
@@ -8,7 +8,6 @@ from typing import Any
 from sqlalchemy import Column, DateTime
 from sqlalchemy.ext.declarative import declarative_base, declared_attr
 
-logger = logging.getLogger(__name__)
 DeclarativeBase = declarative_base()
 
 

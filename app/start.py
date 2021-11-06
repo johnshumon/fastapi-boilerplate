@@ -1,10 +1,8 @@
 """Application entry point: Main app"""
 
+from app.core.config import settings
 from app.server import init_server
 from app.services import init_db, run_migrations
-
-from app.core.config import settings
-
 
 if __name__ == "__main__":
     # Usually migration is run at the beginning

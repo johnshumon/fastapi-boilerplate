@@ -1,4 +1,6 @@
-"""Token schema module"""
+"""
+Token schema module
+"""
 
 from typing import Optional
 

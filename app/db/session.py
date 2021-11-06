@@ -1,4 +1,6 @@
-"""Database connection module"""
+"""
+Database connection module
+"""
 
 from typing import Any, Generator
 
@@ -8,6 +10,7 @@ from sqlalchemy.orm import sessionmaker
 from app.core import settings
 
 engine = create_engine(settings.DB_URL, pool_pre_ping=True)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
 def initialise() -> bool:
@@ -32,7 +35,7 @@ def db_connection() -> Generator:
     """
     try:
         if initialise():
-            db = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+            db = SessionLocal()
             yield db
     finally:
         db.close()

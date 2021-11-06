@@ -1,4 +1,6 @@
-"""Application core configuration"""
+"""
+Core application configuration module
+"""
 
 import logging
 

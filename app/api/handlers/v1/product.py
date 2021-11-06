@@ -1,13 +1,14 @@
-""""""
+"""
+Product module.
+"""
 
 import logging
-
 from typing import Any, List
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
-from app import schemas, crud
+from app import crud, schemas
 from app.db.session import db_connection
 
 logger = logging.getLogger(__name__)

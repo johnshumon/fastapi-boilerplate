@@ -1,4 +1,6 @@
-"""User Schema"""
+"""
+User schema module
+"""
 
 from typing import Optional
 

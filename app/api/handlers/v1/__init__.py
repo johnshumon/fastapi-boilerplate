@@ -1,3 +1,7 @@
+"""
+Router modules import
+"""
+
 from fastapi import APIRouter
 
 from app.api.handlers.v1 import home, product, token, user

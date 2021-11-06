@@ -1,37 +1,43 @@
 """
-User module. This contains handlers related
+User module. This module contains handlers related
 to user signup, login, and update details.
 """
 
-import logging
-
 from typing import Any
-from fastapi import APIRouter
 
-from app.schemas import CreateUser, CreateUserResponse
+from fastapi import APIRouter, Depends
+from sqlalchemy.orm import Session
+
 from app.auth import generate_token
+from app.crud.user import user
+from app.db.session import db_connection
+from app.schemas import CreateUser, CreateUserResponse
 
-logger = logging.getLogger(__name__)
 router = APIRouter()
 
 
 @router.post("", response_model=CreateUserResponse)
-async def create_token(body: CreateUser) -> Any:
+async def create_user(userdata: CreateUser, db: Session = Depends(db_connection)) -> Any:
     """
-    Handler for user signup
+    User signup handler
     Takes user details, and uses user-email to create a
     JWT as a access token.
     """
 
     try:
-        access_token = generate_token(body.email)
+        user.create(userdata, db)
+        access_token = generate_token(userdata.email)
+
         return {
             "status": True,
             "message": "Successfully created the user!",
             "access_token": access_token,
         }
     except Exception as err:
-        logger.error(err)
+        # TODO: replace print with logger
+        print("-----------------------------")
+        print("Err here: ", err)
+        print("-----------------------------")
 
         return {
             "status": False,
