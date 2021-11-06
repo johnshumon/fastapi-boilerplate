@@ -22,7 +22,7 @@ Following tech stacks are required to get the local env up and running.
 
 ### Installation
 
-This is a installation example for Mac users. Please checkout official documentations of those above prerequisites for `windows/linux`. It's assumed that [Homebrew](https://brew.sh) is installed in the machine.
+This is an installation example for Mac users. Please check out official documentations of those above prerequisites for `windows/linux`. It's assumed that [Homebrew](https://brew.sh) is installed in the machine.
 
 ```sh
 # Install python and it's ecosystem
@@ -81,7 +81,23 @@ Choose one of the following options to run the application
   ```
 
 Once service is up and running successfully hover over the following url for the API documentation:
-[localhost:8000/docs](http://127.0.0.1:8000/docs)
+[localhost:8000/docs](http://127.0.0.1:9000/docs)
+
+---
+
+### Alembic and migrations
+Alembic can view the status of the database and compare against the table metadata in the application, generating the `obvious` migrations based on a comparison.
+
+If new models are added alembic would be able to detect it. Run the following commands to create new migration version using `--autogenerate` option.
+
+```sh
+# Tpo autogenerate new version
+$ alembic --config migrations/alembic.ini revision --autogenerate -m "<commit_message>"
+
+# upgrade to the latest version
+$ alembic --config migrations/alembic.ini upgrade head
+
+```
 
 ## Tests
 

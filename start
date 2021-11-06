@@ -5,8 +5,5 @@ export PYTHONPATH=.
 # Run migrations before spinning up the app
 alembic --config migrations/alembic.ini upgrade head
 
-# Run migration and create initial db
-python -m app.db_initializer
-
 # Start up the server
 python -m app.start
