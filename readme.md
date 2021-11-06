@@ -121,7 +121,7 @@ State the roadmap of the project
 
 ## Credit
 
-I've taken inspirations from these following two libraries while making this boiler plate.
+I've taken inspirations from these following two repos while making this boilerplate.
 
 - [SKB's boilerplate](https://github.com/skb1129/fastapi-boilerplate)
 - [Thales Bruno's boilerplate](https://github.com/thalesbruno/fastapi-boilerplate)
