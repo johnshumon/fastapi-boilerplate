@@ -13,7 +13,7 @@ from app.schemas import CreateToken, CreateTokenResponse
 router = APIRouter()
 
 
-@router.post("", response_model=CreateTokenResponse)
+@router.post("", response_model=CreateTokenResponse, status_code=201)
 async def create_token(body: CreateToken) -> Any:
     """
     JWT handler.
